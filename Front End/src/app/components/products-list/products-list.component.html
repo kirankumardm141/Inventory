@@ -1,0 +1,19 @@
+<div class ="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class ="row">
+
+                <div *ngFor="let tempProduct of products" class ="col-md-3">
+                <div class ="product-box">
+                    <img src = "{{tempProduct.imageurl}}" class ="img-responsive" height="42" width="42">
+                    <h1>{{tempProduct.name}}</h1>
+                    <button (click)="updateProduct(tempProduct.id)">Edit</button>
+                    <div class="price">{{ tempProduct.sellingPrice | currency:'INR'}}</div>
+                    <button (click)="addToCart(tempProduct)" class ="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
