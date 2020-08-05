@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/common/cart-item';
+import { NgxSpinnerService } from "ngx-spinner"; 
 
 @Component({
   selector: 'app-products-list',
@@ -15,7 +16,8 @@ export class ProductsListComponent implements OnInit {
   products : Product[];
   currentCategoryId: number;
 
-  constructor(private productService: ProductService,
+  constructor(private SpinnerService: NgxSpinnerService,
+              private productService: ProductService,
               private cartService: CartService,
               private router: Router) { }
 
@@ -24,10 +26,11 @@ export class ProductsListComponent implements OnInit {
   }
 
   listProducts(){
-
+    this.SpinnerService.show();
     this.productService.getProductsList().subscribe(
       data => {
         this.products = data;
+        this.SpinnerService.hide();
         //console.log(data);
       }
     )

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
 
 
 const routes: Routes = [
@@ -27,9 +28,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule 
   ],
-  providers: [],
+  providers: [NgxSpinnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

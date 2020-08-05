@@ -62,4 +62,10 @@ public class ProductController {
 				.path("/{id}").buildAndExpand(prod.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
+	
+	@GetMapping("/products")
+	public Optional<Product> getProducts()
+	{
+		
+	}
 }
